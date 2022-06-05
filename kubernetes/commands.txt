@@ -12,8 +12,6 @@ kubectl apply -f serviceFrontend.yml
 kubectl apply -f serviceReverseProxy.yml
 kubectl apply -f serviceUser.yml
 
-kubectl apply -f hpa.yml
-
 
 kubectl delete -f aws-secret.yml --grace-period=0 --force
 kubectl delete -f env-secret.yml --grace-period=0 --force
