@@ -2,27 +2,31 @@ kubectl apply -f aws-secret.yml
 kubectl apply -f env-secret.yml
 kubectl apply -f env-configmap.yml
 
-kubectl apply -f deploymentFeed.yml
-kubectl apply -f deploymentFrontend.yml
-kubectl apply -f deploymentReverseProxy.yml
-kubectl apply -f deploymentUser.yml
+kubectl apply -f backend-feed-deployment.yml
+kubectl apply -f frontend-deployment.yml
+kubectl apply -f reverseproxy-deployment.yml
+kubectl apply -f backend-user-deployment.yml
 
-kubectl apply -f serviceFeed.yml
-kubectl apply -f serviceFrontend.yml
-kubectl apply -f serviceReverseProxy.yml
-kubectl apply -f serviceUser.yml
+kubectl apply -f backend-feed-service.yml
+kubectl apply -f frontend-service.yml
+kubectl apply -f reverseproxy-service.yml
+kubectl apply -f backend-user-service.yml
+
+
+kubectl delete services --all
+kubectl delete deploy --all
 
 
 kubectl delete -f aws-secret.yml --grace-period=0 --force
 kubectl delete -f env-secret.yml --grace-period=0 --force
 kubectl delete -f env-configmap.yml --grace-period=0 --force
 
-kubectl delete -f deploymentFeed.yml --grace-period=0 --force
-kubectl delete -f deploymentFrontend.yml --grace-period=0 --force
-kubectl delete -f deploymentReverseProxy.yml --grace-period=0 --force
-kubectl delete -f deploymentUser.yml --grace-period=0 --force
+kubectl delete -f backend-feed-deployment.yml --grace-period=0 --force
+kubectl delete -f frontend-deployment.yml --grace-period=0 --force
+kubectl delete -f reverseproxy-deployment.yml --grace-period=0 --force
+kubectl delete -f backend-user-deployment.yml --grace-period=0 --force
 
-kubectl delete -f serviceFeed.yml --grace-period=0 --force
-kubectl delete -f serviceFrontend.yml --grace-period=0 --force
-kubectl delete -f serviceReverseProxy.yml --grace-period=0 --force
-kubectl delete -f serviceUser.yml --grace-period=0 --force
+kubectl delete -f backend-feed-service.yml --grace-period=0 --force
+kubectl delete -f frontend-service.yml --grace-period=0 --force
+kubectl delete -f reverseproxy-service.yml --grace-period=0 --force
+kubectl delete -f backend-user-service.yml --grace-period=0 --force
